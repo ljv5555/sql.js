@@ -8,6 +8,7 @@ margin: 10px 10px 10px 10px;
 padding: 10px 10px 10px 10px;
 background:black;
 color:white;
+min-height:100px;
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
@@ -98,12 +99,12 @@ f2();
 </head>
 <body>
 <h5>Input SQL</h5>
-<div id="indiv" class="indiv" editable="true">
+<pre id="indiv" class="indiv" contenteditable="true">
 
-</div>
+</pre>
 <button type="button" onclick="go();">Execute</button>
 <p/>
 <h5>Result</h5>
-<div class="outdiv" id="outdiv"></div>
+<pre class="outdiv" id="outdiv"></pre>
 </body>
 </html>
