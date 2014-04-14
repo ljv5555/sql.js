@@ -2,20 +2,108 @@
 <html>
 <head><title></title>In-Browser Client-Side JavaScript SQLITE sample</title>
 <style>
-div{
+body{font-family:arial;}
+.indiv,.outdiv{
 margin: 10px 10px 10px 10px;
 padding: 10px 10px 10px 10px;
 background:black;
 color:white;
 }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
 <script src="js/sqlite.js"></script>
+<script>
+function go()
+{
+	
+}
+</script>
+
+
+<!-- 
+
+function mainCode()
+{
+}
+function f2(){
+(function(){
+    try{console.log('entered script');}catch(exc){}
+    var when = function(stringToEval,cb)
+    {
+        try{console.log('entered when: '+stringToEval+" - - > "+eval(stringToEval));}catch(exc){}
+        if(eval(stringToEval)){cb();}
+        else{setTimeout(function(){when(''+JSON.stringify(stringToEval),cb);},100);}
+    };
+    var getXsS = function(url)
+    {
+    try{console.log('entered getxss');}catch(exc){}
+        var ss = 's' + 'cr' + 'ip' + 't';
+        var cst = document.getElementsByTagName(ss)[0];
+        var ts = 1*(new Date()).getTime();
+        var e = document.createElement(ss);
+        var tsstr = '_ts1_='+ts;
+        if((''+url).indexOf('?')==-1){tsstr=url+'?'+tsstr;}else{tsstr=url+'&'+tsstr;}
+        e.src=tsstr;
+        cst.parentElement.insertBefore(e,cst);
+    };
+    
+    if(!window["jQuery"]){getXsS("https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.js");}
+    if(!window["_"]){getXsS("https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js");}
+    if(!window["SQL"]){getXsS("https://github.com/kripken/sql.js/blob/master/js/sql.js?raw=true");}
+    when('(function(){if(window["_"])if(window["jQuery"])if(window["SQL"])return true; return false;})()',
+    function()
+    {
+        try{console.log('entered getxss, main script');}catch(exc){}
+        window.log=function(o){try{console.log(o);}catch(exc){}};
+        var log = window.log;
+        ////////////// Main script /////////////////////
+            document.getElementsByTagName('body')[0].innerHTML=
+ '<h3>working...</h3><div id="t1"></div><div id="t2"></div>';
+    jQuery('h3').text(jQuery('h3').text()+' . ');
+
+    var command='';
+    jQuery('h3').text(jQuery('h3').text()+' . ');
+    var db = SQL.open();
+    jQuery('h3').text(jQuery('h3').text()+' . ');
+    
+    db.exec('CREATE TABLE table1(id integer,  name text, value text);');
+    jQuery('h3').text(jQuery('h3').text()+' . ');
+    db.exec("INSERT INTO table1 VALUES(1,'n1','v1');");
+    jQuery('h3').text(jQuery('h3').text()+' . ');
+    db.exec("INSERT INTO table1 VALUES(2,'n2','v2');");
+    jQuery('h3').text(jQuery('h3').text()+' . ');
+    var rtn = db.exec('select * from table1;');
+    jQuery('h3').text(jQuery('h3').text()+' . ');
+    jQuery('#t1').text("rtn=:"+JSON.stringify(rtn));    
+    jQuery('h3').text(jQuery('h3').text()+' . ');
+    jQuery('#t2').text('_');
+    jQuery('h3').text(jQuery('h3').text()+' . ');
+    jQuery('h3').text('table1:');
+    jQuery('h3').text(' table1: ');
+
+        ////////////////////////////////////////////////
+        try{console.log('entered getxss');}catch(exc){}
+    });
+     
+   try{console.log('exited script');}catch(exc){}
+
+    
+})();
+}
+f2();
+
+ -->
+
 </head>
 <body>
-<h5>input sql</h5>
+<h5>Input SQL</h5>
 <div id="indiv" class="indiv" editable="true">
 
 </div>
+<button type="button" onclick="go();">Execute</button>
 <p/>
+<h5>Result</h5>
 <div class="outdiv" id="outdiv"></div>
 </body>
 </html>
