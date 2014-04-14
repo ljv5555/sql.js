@@ -17,9 +17,16 @@ min-height:100px;
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
 <script src="js/sqlite.js"></script>
 <script>
+var db = false;
+var dbr = false;
+function init()
+{
+	db = SQL.open();
+}
 function go()
 {
-	
+	dbr=db.exec(jQuery('.indiv').text());
+	jQuery('.outdiv').text(JSON.stringify(dbr));
 }
 </script>
 
@@ -103,6 +110,11 @@ f2();
 <h4>In-Browser Client-Side JavaScript SQLITE sample</h4>
 <h5>Input SQL</h5>
 <pre id="indiv" class="indiv" contenteditable="true">
+CREATE TABLE table1(id integer,  name text, value text);
+INSERT INTO table1 VALUES(1,'n1','v1');
+INSERT INTO table1 VALUES(2,'n2','v2');
+
+select * from table1
 
 </pre>
 <button type="button" onclick="go();">Execute</button>
