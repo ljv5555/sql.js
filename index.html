@@ -19,6 +19,17 @@ min-height:100px;
 <script>
 var db = false;
 var dbr = false;
+
+function sqlTableToHtmlTable(st)
+{
+	var rtn = '<table>';
+	_.each(st,function(row){rtn+='<tr>';_.each(row,function(cell){
+		rtn+='<td title="'+_escape(row['column'])+'">'+_.escape(row['value'])+'</td>';
+	});rtn+='</tr>';});
+	rtn+='</table>';
+	return rtn;
+}
+
 function init()
 {
 	db = SQL.open();
@@ -27,8 +38,9 @@ function go()
 {
 	if(!db){init();}
 	dbr=db.exec(jQuery('.indiv').text());
-	jQuery('.outdiv').text(JSON.stringify(dbr));
+	jQuery('.outdiv').html(sqlTableToHtmlTable(dbr));
 }
+
 </script>
 
 
