@@ -76,8 +76,12 @@ function go()
 </head>
 <body>
 <h4>In-Browser Client-Side JavaScript SQLITE sample</h4>
-<table></table>
-<h5>Input SQL</h5>
+<table>
+<tr>
+<td><h5>Input SQL</h5></td><td><h5>Result</h5></td>
+</tr>
+<tr>
+<td>
 <pre id="indiv" class="indiv" contenteditable="true">
 CREATE TABLE table1(row_id integer, text1 text, text2 text);
 INSERT INTO table1 VALUES(1,'n1','v1');
@@ -86,9 +90,21 @@ INSERT INTO table1 VALUES(2,'n2','v2');
 select * from table1
 
 </pre>
-<button type="button" onclick="go();">Execute</button>
-<p/>
-<h5>Result</h5>
+</td>
+<td>
 <pre class="outdiv" id="outdiv"></pre>
+
+</td>
+</tr>
+<tr>
+<td>
+<button type="button" onclick="go();">Execute</button>
+</td>
+<td>
+</td>
+</tr>
+</table>
+<p/>
+
 </body>
 </html>
