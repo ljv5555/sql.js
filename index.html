@@ -144,22 +144,8 @@ select * from table1
 <script>
 function gox()
 {
-	var xml = jQuery('.indiv2').val();
-	var blob = new Blob([xml],{"type":"text/xml"});
-	var xmlurl = URL.createObjectURL(blob);
-	var Connect = new XMLHttpRequest();
-	 
-	  // Define which file to open and
-	  // send the request.
-	  Connect.open("GET", xmlurl, false);
-	  Connect.setRequestHeader("Content-Type", "text/xml");
-	  Connect.send(null);
-	 
-	  // Place the response in an XML document.
-	  var TheDocument = Connect.responseXML;
-	 
-	  // Place the root node in an element.
-	  var root = TheDocument.childNodes[0];
+
+	var root=jQuery('<div/>').append(jQuery('.indiv2').val())[0].children[0];
 	 
 	  // Retrieve each customer in turn.
 	  for (var i = 0; i < root.children.length; i++)
