@@ -25,6 +25,7 @@ function init()
 }
 function go()
 {
+	if(!db){init();}
 	dbr=db.exec(jQuery('.indiv').text());
 	jQuery('.outdiv').text(JSON.stringify(dbr));
 }
