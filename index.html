@@ -24,9 +24,21 @@ var dbr = false;
 function sqlTableToHtmlTable(st)
 {
 	var rtn = '<table>';
+	var first=true;
 	_.each(st,function(row)
 	{
 		try{console.log(JSON.stringify(row));}catch(ee){}
+		if(first)
+		{
+			first=false;
+			rtn+='<tr>';
+			_.each(row,function(cell){
+				rtn+='<th>'
+				+_.escape(cell['column'])
+				+'</th>';
+			});
+			rtn+='</tr>';
+		}
 		rtn+='<tr>';
 		_.each(row,function(cell){
 			rtn+='<td title="'
