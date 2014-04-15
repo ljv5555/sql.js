@@ -9,18 +9,18 @@ padding: 10px 10px 10px 10px;
 }
 td{width:calc(50% - 10px);}
 body{font-family:arial;}
-.indiv,.outdiv,h4,td,th
+.indiv,.indiv2,.outdiv,h4,td,th
 {
 margin: 10px 10px 10px 10px;
 padding: 10px 10px 10px 10px;
 background:black;
 color:white;
 }
-.outdiv, .indiv, td, th
+.outdiv, .indiv,.indiv2, td, th
 {
 border:1px solid white;
 }
-.indiv,.outdiv
+.indiv,.indiv2,.outdiv
 {
 min-height:100px;
 }
@@ -111,6 +111,34 @@ select * from table1
 </tr>
 </table>
 <p/>
-
+<div>
+<h4>Load HTML as Table Named <input class="tablename" value="xmltable1"/></h4>
+<pre class="indiv2" contenteditable="true">
+	<?xml version="1.0"?>
+	<root>
+		<row>
+			<child1>text11</child1>
+			<child2>text21</child2>
+			<child3>text31</child3>
+			<child4>text41</child4>
+			<child5>text51</child5>
+		</row>
+		<row>
+			<child1>text12</child1>
+			<child2>text22</child2>
+			<child3>text32</child3>
+			<child4>text42</child4>
+			<child5>text52</child5>
+		</row>
+		<row>
+			<child1>text13</child1>
+			<child2>text23</child2>
+			<child3>text33</child3>
+			<child4>text43</child4>
+			<child5>text53</child5>
+		</row>
+	</root>
+</pre>
+</div>
 </body>
 </html>
