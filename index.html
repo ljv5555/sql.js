@@ -3,13 +3,13 @@
 <head><title>In-Browser Client-Side JavaScript SQLITE sample</title>
 <style>
 body{font-family:arial;}
-.indiv,.outdiv,h4,td{
+.indiv,.outdiv,h4,td,tr,table{
 margin: 10px 10px 10px 10px;
 padding: 10px 10px 10px 10px;
 background:black;
 color:white;
 }
-td{border:1px solid white;}
+td,tr,table{border:1px solid white;}
 .indiv,.outdiv{
 min-height:100px;
 }
@@ -30,8 +30,8 @@ function sqlTableToHtmlTable(st)
 		rtn+='<tr>';
 		_.each(row,function(cell){
 			rtn+='<td title="'
-			+_.escape(row['column'])+'">'
-			+_.escape(row['value'])
+			+_.escape(cell['column'])+'">'
+			+_.escape(cell['value'])
 			+'</td>';
 		});
 		rtn+='</tr>';
