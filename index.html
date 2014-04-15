@@ -112,8 +112,10 @@ select * from table1
 </table>
 <p/>
 <div>
-<h4>Load HTML as Table Named <input class="tablename" value="xmltable1"/></h4>
-<pre class="indiv2" contenteditable="true">
+<h4>Load HTML as Table</h4>
+<div>Name: <input class="tablename" value="xmltable1"/>
+	<button onclick="gox();" type="button">go</button></div>
+<textarea class="indiv2" style="display:block;height:200px;">
 	<?xml version="1.0"?>
 	<root>
 		<row>
@@ -138,7 +140,7 @@ select * from table1
 			<child5>text53</child5>
 		</row>
 	</root>
-</pre>
+</textarea>
 </div>
 </body>
 </html>
