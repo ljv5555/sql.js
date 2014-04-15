@@ -2,7 +2,7 @@
 <html>
 <head><title>In-Browser Client-Side JavaScript SQLITE sample</title>
 <style>
-table{
+table,textarea{
 width:calc(100% - 20px);
 margin: 10px 10px 10px 10px;
 padding: 10px 10px 10px 10px;
@@ -115,7 +115,7 @@ select * from table1
 <h4>Load HTML as Table</h4>
 <div>Name: <input class="tablename" value="xmltable1"/>
 	<button onclick="gox();" type="button">go</button></div>
-<textarea class="indiv2" style="display:block;height:200px;">
+<textarea class="indiv2" style="font-size:10px;height:200px;">
 	<?xml version="1.0"?>
 	<root>
 		<row>
@@ -141,6 +141,40 @@ select * from table1
 		</row>
 	</root>
 </textarea>
+<script>
+function gox()
+{
+	var xml = jQuery('.indiv2').val();
+	var blob = new Blob([xml],{"type":"text/xml"});
+	var xmlurl = URL.createObjectURL(blob);
+	var Connect = new XMLHttpRequest();
+	 
+	  // Define which file to open and
+	  // send the request.
+	  Connect.open("GET", xmlurl, false);
+	  Connect.setRequestHeader("Content-Type", "text/xml");
+	  Connect.send(null);
+	 
+	  // Place the response in an XML document.
+	  var TheDocument = Connect.responseXML;
+	 
+	  // Place the root node in an element.
+	  var root = TheDocument.childNodes[0];
+	 
+	  // Retrieve each customer in turn.
+	  for (var i = 0; i < root.children.length; i++)
+	  {
+	   var node = root.children[i];
+	  
+	   // Access each of the data values.
+	   var elements = node.getElementsByTagName("*");
+	   
+	   console.log(JSON.stringify(elements));
+	   
+	  }
+	   
+}
+</script>
 </div>
 </body>
 </html>
