@@ -116,7 +116,7 @@ select * from table1
 <div>Name: <input class="tablename" value="xmltable1"/>
 	<button onclick="gox();" type="button">go</button></div>
 <textarea class="indiv2" style="font-size:10px;height:200px;">
-	<?xml version="1.0"?>
+	
 	<root>
 		<row>
 			<child1>text11</child1>
@@ -145,17 +145,19 @@ select * from table1
 function gox()
 {
 
+	window.nnn=[];
 	var root=jQuery('<div/>').append(jQuery('.indiv2').val())[0].children[0];
 	 
 	  // Retrieve each customer in turn.
 	  for (var i = 0; i < root.children.length; i++)
 	  {
 	   var node = root.children[i];
-	  
+	  console.log(node);
+	  window.nnn.push(node);
 	   // Access each of the data values.
-	   var elements = node.getElementsByTagName("*");
+	  // var elements = node.getElementsByTagName("*");
 	   
-	   console.log(JSON.stringify(elements));
+	  // console.log(elements);
 	   
 	  }
 	   
